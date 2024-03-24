@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB Javascript</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Validation Form</h2>
+        <form id="validation-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <input type="checkbox" id="accept" name="accept" required>
+            <label for="accept">I accept the terms and conditions</label>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script>document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("validation-form");
+            form.addEventListener("submit", function (event) {
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const accept = document.getElementById("accept").checked;
+
+                if (!name || !email || !accept) {
+                    event.preventDefault();
+                    alert("Please fill out all fields and accept the terms.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
